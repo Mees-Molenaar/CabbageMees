@@ -7,7 +7,7 @@ permalink: /about/
 
 Hoi,
 
-Leuk dat je kijkt op deze blog van een rare vogel (een Koolmees bijvoorbeeld). Als je mijn introductie (nog) niet hebt gelezen, dan kan je die [hier](https://mees-molenaar.github.io/CabbageMees/2021/05/26/Eerste-blog-post.html) vinden.
+Leuk dat je kijkt op deze blog van een rare vogel (een Koolmees bijvoorbeeld). Als je mijn introductie (nog) niet hebt gelezen, dan kan je die [hier](https://mees-molenaar.github.io/CabbageMees/de%20reis/introductie/2021/05/26/Eerste-blog-post.html) vinden.
 
 Dit blog gaat dus over twee passies Artificiele Intelligentie (AI) en biologie. Op dit moment is eerst het plan om een van de beste AI beoefenaars te worden van Nederland. Om dat vervolgens toe te passen in de Biologie met als droom: op een goedkopere manier medicijnen te ontwikkelen. Ik neem jullie mee op dit avontuur.
 
