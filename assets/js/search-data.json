@@ -3,13 +3,22 @@
     
   
     
+        "post1": {
+            "title": "Welkom op CabbageMees!",
+            "content": "Hoi, . Mijn naam is Mees en sommige zullen zeggen dat ik een rare vogel ben (een koolmees bijvoorbeeld). In 2020 heb ik mijn Life Science &amp; Technology diploma van de Universiteit Leiden behaald. Nu wil ik deze kennis over de biologie verbinden met een andere passie van mij, namelijk programmeren en meer specifiek Artificiële Intelligentie (AI). Via deze blog wil ik jullie graag op de hoogte houden van mijn bezigheden. . Maar eerst nog even terug naar waar het allemaal begon. Toen ik nog jonger en kleiner was dan nu, was het mijn droom om een middel te vinden tegen kanker. Dat was voor mij de reden om, na de middelbare school, Life Science &amp; Technology te gaan studeren. Tijdens de studie kwam ik tot de conclusie dat het laboratorium niks voor mij was en dat ik op deze manier nooit een medicijn zou uitvinden. Dit was een enorme teleurstelling, maar gelukkig kwam ik er snel achter dat je op veel meer manieren bij kan dragen aan het ontwikkelen van medicijnen. Zo ben ik in aanraking gekomen met AI. . De eerste kennismaking was tijdens het vak computationele medicijn ontwikkeling (gegeven door prof. dr. ir. Fraaije). Tijdens deze colleges bespraken wij bijvoorbeeld Quantitative Structure-Activity Relationship (QSAR), een machinaal leren (een vorm van AI) techniek om te voorspellen wat voor eigenschappen een molecuul heeft (zoals elektronegativiteit). Dit sprak erg tot mijn verbeelding. En zo begon het fantaseren over een computer programma wat alles weet van het menselijk lichaam en van een potentieel medicijn waardoor het belangrijke eigenschappen van medicijnen kan voorspellen. Zoals of het medicijn werkzaam is, of er bijwerkingen zijn, in welk weefsel het medicijn zich het meeste bevind. JA, dacht ik. Dit is fantastisch! Ik wil zo snel mogelijk AI onder de knie krijgen! . Nu, een aantal jaren verder, heb ik veel geleerd. Van programmeren in Python tot het maken van neurale netwerken (een vorm van AI) en ik ben daar nog steeds iedere dag met passie mee bezig. Ook maak ik eigen projecten, maar hoe de reis verder zal gaan is nog onzeker. Mede daarom wil ik jullie graag mee nemen op deze reis. Daarnaast is het uitleggen van de technieken en termen die je zelf geleerd hebt de ultieme manier om jezelf te toetsen en dus vergt het dat je het onderwerp tot in de puntjes begrijpt. Als laatste, en misschien ook het belangrijkste, hoop ik jullie lezers te helpen bij het begrijpen van de soms lastige concepten die bij AI horen. . De droom om medicijnen te ontwikkelen met AI is er nog steeds, maar mijn eerste doel is een van de beste AI beoefenaars van Nederland te worden. Tot zo ver de eerste blog post en tot de volgende keer! . Mees .",
+            "url": "https://mees-molenaar.github.io/CabbageMees/de%20reis/introductie/2021/05/26/Eerste-blog-post.html",
+            "relUrl": "/de%20reis/introductie/2021/05/26/Eerste-blog-post.html",
+            "date": " • May 26, 2021"
+        }
+        
+    
   
 
   
   
 
   
-      "page1": {
+      ,"page1": {
           "title": "Over Mij",
           "content": "Hoi, . Leuk dat je kijkt op deze blog van een rare vogel (een Koolmees bijvoorbeeld). Als je mijn introductie (nog) niet hebt gelezen, dan kan je die hier vinden. . Dit blog gaat dus over twee passies Artificiele Intelligentie (AI) en biologie. Op dit moment is eerst het plan om een van de beste AI beoefenaars te worden van Nederland. Om dat vervolgens toe te passen in de Biologie met als droom: op een goedkopere manier medicijnen te ontwikkelen. Ik neem jullie mee op dit avontuur. . Wat doe ik nu (06JUN21) . Werk: Automation specialist Janssen Biologics . Eigen Projecten: . Eiwit subcellulaire locatie voorspellen staat op dit moment even in de ijskast | Recepten herkennen en boodschappenlijst maken van foto | Deze blog natuurlijk!! | . This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://mees-molenaar.github.io/CabbageMees/about/",
