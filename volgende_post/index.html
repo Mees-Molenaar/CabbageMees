@@ -77,7 +77,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -109,14 +109,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Hoi hoi,</p>
-<p>Vandaag wil ik een voorbeeld delen van Artificiële Intelligentie (AI) in de biologie. Dit is mijn eerste project dat ik gemaakt heb, namelijk een model (eigenlijk een soort van computerprogramma) die kan voorspellen of een moedervlek goed- of kwaadaardig is <sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup>. Hiermee was ik begonnen omdat de (gratis!) online cursus van Fastai <sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup> aanbeveeld om zo snel mogelijk te experimenteren. ZO kan je spelenderwijs leren en later, mocht je het interessant vinden, dieper in de theorie duiken.</p>
+<p>Vandaag wil ik een voorbeeld delen van Artificiële Intelligentie (AI) in de biologie. Maar, voordat ik begin, een kleine waarschuwing. In deze post komen er namelijk vele waarschijnlijk onbekende en soms ook moeilijke termen voor. Wanneer ik ze allemaal in deze post uit ga leggen word de post ietwat lang. Daarom heb ik soms een korte uitleg gegeven maar op andere momenten niet want het idee is om deze termen uitvoerig te bespreken in de volgende posts. Dat gezegd hebbende, deze post gaat over mijn eerste project dat ik gemaakt heb, namelijk een model (eigenlijk een soort van computerprogramma) die kan voorspellen of een moedervlek goed- of kwaadaardig is <sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup>. Hiermee was ik begonnen omdat de (gratis!) online cursus van Fastai <sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup> aanbeveeld om zo snel mogelijk te experimenteren. Zo kan je spelenderwijs leren en later, mocht je het interessant vinden, dieper in de theorie duiken.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Om het nog makkelijker te maken en sneller te kunnen beginnen met experimenteren heeft Fastai een eigen Python library (een term dat gebruikt wordt als: een uitbreiding van de programmeertaal Python). Met deze library, kan je met relatief weinig programmer kennis een model trainen die een voorspelling kan maken van, ja van wat niet eigenlijk. Dit kan zolang je maar genoeg voorbeelden (je data) hebt. Gelukkig, hoef je niet altijd zelf je data te verzamelen maar zijn er mensen die data gratis met de wereld delen. Tschandl et al. hebben plaatjes van moedervlekken bij elkaar gezocht en een label (een label is de waarde die de data, in dit geval een foto, heeft) gegeven. Specialisten op het gebied van moedervlekken hebben iedere foto beoordeeld als goed- of kwaadaardige moedervlek. Deze stap is erg belangrijk want zonder gelabelde data kan je eigenlijk geen AI model maken die een nuttige voorspelling kan doen (met uitzondering van technieken die ongelabelde data gebruiken, maar dat is voor een volgende keer). En vaak is des te meer data des te beter.</p>
+<p>Om het nog makkelijker te maken en sneller te kunnen beginnen met experimenteren heeft Fastai een eigen Python library (een term dat gebruikt wordt als: een uitbreiding van de programmeertaal Python). Met deze library, kan je met relatief weinig programmeer kennis een model trainen die een voorspelling kan maken van, ja van wat niet eigenlijk. Dit kan zolang je maar genoeg voorbeelden (je data) hebt. Gelukkig, hoef je niet altijd zelf je data te verzamelen maar zijn er mensen die data gratis met de wereld delen. Tschandl et al. hebben plaatjes van moedervlekken bij elkaar gezocht en een label (een label is de waarde die de data, in dit geval een foto, heeft) gegeven. Specialisten op het gebied van moedervlekken hebben iedere foto beoordeeld als goed- of kwaadaardige moedervlek. Deze stap is erg belangrijk want zonder gelabelde data kan je eigenlijk geen AI model maken die een nuttige voorspelling kan doen (met uitzondering van technieken die ongelabelde data gebruiken, maar dat is voor een volgende keer). En vaak is des te meer data des te beter.</p>
 
 </div>
 </div>
@@ -137,7 +137,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Tabel 1: Het trainen van een model.</p>
+<p>Tabel 1: Het trainen van een model. Epochs staat voor hoe veel keer je door je data heen gaat om je model te trainen. De train_loss is de loss die het model heeft op de trainings data en de valid_loss van je evaluatie data (hoe de loss word berekend ga ik later bespreken, de loss is berekend door het verschil tussen de voorspelde waarde door het model en de echte (gelabelde) waarde in een formule te stoppen). Als laatste bevat de tabel de tijd die 1 epoch duurt in minuten.</p>
 <p><img src="/CabbageMees/images/copied_from_nb/images/Tabel_error_rate_blog_moedervlekken.JPG" alt="" /></p>
 
 </div>
@@ -145,7 +145,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In onderstaande tabel zie je dat we (na maar een paar minuten trainen) een accuuraatheid van maarliefst 95% hebben (Tabel 1; De error rate is lager dan 0.05, wat betekend dat de accuraatheid groter is dan (1 - 0.05) * 100%). Dat is de kracht van transfer learning en trainen op een grafische kaart (GPU). Echter, een wezenlijk probleem is echter dat de accuraatheid verbonden is aan of je model een soortgelijke moedervlek heeft gezien tijdens de training. Hoewel we dat probleem zo goed mogelijk op te lossen door je data te splitsen, is het nog steeds een probleem wanneer een moedervlek er compleet anders uit ziet dan de moedervlekken waarop je het model hebt getraind. Dat is een reden waarom deze moddelen in de praktijk nog geen specialisten vervangen en waarom je dus met een gek uitziende moedervlek altijd naar een specialist moet gaan. Maar, deze modellen kunnen wel als hulpmiddel dienen voor deze specialisten! Dit voorbeeld laat dus de kracht maar zeker ook een grote uitdaging van AI zien.</p>
+<p>In onderstaande tabel zie je dat we (na maar een paar minuten trainen) een accuuraatheid van maarliefst 95% hebben (Tabel 1; De error rate is lager dan 0.05, wat betekend dat de accuraatheid groter is dan (1 - 0.05) * 100%). Dat is de kracht van transfer learning en trainen op een grafische kaart (GPU). Echter, een wezenlijk probleem is dat de accuraatheid verbonden is aan of je model een soortgelijke moedervlek heeft gezien tijdens de training. Hoewel we dat probleem zo goed mogelijk proberen op te lossen door je data te splitsen, is het nog steeds een probleem wanneer een moedervlek er compleet anders uit ziet dan de moedervlekken waarop je het model hebt getraind. Dat is een reden waarom deze modellen in de praktijk nog geen specialisten vervangen en waarom je dus met een gek uitziende moedervlek altijd naar een specialist moet gaan. Maar, deze modellen kunnen wel als hulpmiddel dienen voor deze specialisten! Dit voorbeeld laat dus de kracht maar zeker ook een grote uitdaging van AI zien.</p>
 
 </div>
 </div>
@@ -237,7 +237,7 @@ window.onload = wrap_img;
       <th>2</th>
       <td>X-ray</td>
       <td>Borstkas aandoeningen</td>
-      <td>Han Liu, Lei Wang, Yandong Nan, Faguang Jin, Qi Wang, Jiantao Pu, SDFN: Segmentation-based deep fusion network for thoracic disease classification in chest X-ray images, Computerized Medical Imaging and Graphics, Volume 75, Pages 66-73, ISSN 0895-6111, https://doi.org/10.1016/j.compmedimag.2019....</td>
+      <td>Han Liu, Lei Wang, Yandong Nan, Faguang Jin, Qi Wang, Jiantao Pu, SDFN: Segmentation-based deep fusion network for thoracic disease classification in chest X-ray images, Computerized Medical Imaging and Graphics, Volume 75, Pages 66-73, ISSN 0895-6111, https://doi.org/10.1016/j.compmedimag.2019.05.005.</td>
     </tr>
   </tbody>
 </table>
