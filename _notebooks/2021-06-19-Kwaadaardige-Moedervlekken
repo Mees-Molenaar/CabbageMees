@@ -5,17 +5,15 @@
    "id": "b767bf76-bfca-458c-b34a-1aec8f5bfad1",
    "metadata": {},
    "source": [
-    "# \"Kwaadaardige moedervlekken herkennen met artificële intelligentie\"\n",
-    "> \"Een voorbeeld van een AI project wat een biologisch probleem kan oplossen\"\n",
+    "# \"Kwaadaardige moedervlekken herkennen met artificiële intelligentie\"\n",
+    "> \"Een voorbeeld van een AI project dat een biologisch probleem kan oplossen\"\n",
     "\n",
-    "- permalink: /volgende_post/\n",
-    "- toc: false\n",
+    "- toc: true\n",
     "- branch: master\n",
     "- badges: false\n",
-    "- categories: [De reis, Introductie]\n",
-    "- search_exclude: true\n",
-    "- show_tags: true\n",
-    "- hide: true"
+    "- categories: [Projecten, CNN, Biologie]\n",
+    "- search_exclude: false\n",
+    "- show_tags: true"
    ]
   },
   {
@@ -38,7 +36,7 @@
    "source": [
     "Hoi hoi,\n",
     "\n",
-    "Vandaag wil ik een voorbeeld delen van Artificiële Intelligentie (AI) in de biologie. Maar, voordat ik begin, een kleine waarschuwing. In deze post komen er namelijk vele waarschijnlijk onbekende en soms ook moeilijke termen voor. Wanneer ik ze allemaal in deze post uit ga leggen word de post ietwat lang. Daarom heb ik soms een korte uitleg gegeven maar op andere momenten niet want het idee is om deze termen uitvoerig te bespreken in de volgende posts. Dat gezegd hebbende, deze post gaat over mijn eerste project dat ik gemaakt heb, namelijk een model (eigenlijk een soort van computerprogramma) die kan voorspellen of een moedervlek goed- of kwaadaardig is {% fn 1 %}. Hiermee was ik begonnen omdat de (gratis!) online cursus van Fastai {% fn 2 %} aanbeveeld om zo snel mogelijk te experimenteren. Zo kan je spelenderwijs leren en later, mocht je het interessant vinden, dieper in de theorie duiken."
+    "Vandaag wil ik een voorbeeld delen van Artificiële Intelligentie (AI) in de biologie. Maar voordat ik begin, een kleine waarschuwing. In deze post komen mogelijk onbekende en moeilijke termen voor. Wanneer ik ze allemaal in deze post uit ga leggen wordt de post ietwat lang. Daarom heb ik soms een korte uitleg gegeven ,maar op andere momenten niet ,want het idee is om deze termen uitvoerig te bespreken in de volgende posts. Dat gezegd hebbende, deze post gaat over mijn eerste project dat ik gemaakt heb, namelijk een model (eigenlijk een soort van computerprogramma) dat kan voorspellen of een moedervlek goed- of kwaadaardig is {% fn 1 %}. Hiermee was ik begonnen ,omdat de (gratis!) online cursus van Fastai {% fn 2 %} aanbeveelt om zo snel mogelijk te experimenteren. Zo kan je spelenderwijs leren en later, mocht je het interessant vinden, dieper in de theorie duiken."
    ]
   },
   {
@@ -46,7 +44,7 @@
    "id": "de67f29b-607a-4d6f-968b-d97c3ba4d8f8",
    "metadata": {},
    "source": [
-    "Om het nog makkelijker te maken en sneller te kunnen beginnen met experimenteren heeft Fastai een eigen Python library (een term dat gebruikt wordt als: een uitbreiding van de programmeertaal Python). Met deze library, kan je met relatief weinig programmeer kennis een model trainen die een voorspelling kan maken van, ja van wat niet eigenlijk. Dit kan zolang je maar genoeg voorbeelden (je data) hebt. Gelukkig, hoef je niet altijd zelf je data te verzamelen maar zijn er mensen die data gratis met de wereld delen. Tschandl et al.{{% fn 3 %}} hebben plaatjes van moedervlekken bij elkaar gezocht en een label (een label is de waarde die de data, in dit geval een foto, heeft) gegeven. Specialisten op het gebied van moedervlekken hebben iedere foto beoordeeld als goed- of kwaadaardige moedervlek. Deze stap is erg belangrijk want zonder gelabelde data kan je eigenlijk geen AI model maken die een nuttige voorspelling kan doen (met uitzondering van technieken die ongelabelde data gebruiken, maar dat is voor een volgende keer). En vaak is des te meer data des te beter."
+    "Om het nog makkelijker te maken en sneller te kunnen beginnen met experimenteren heeft Fastai een eigen Python library (een term dat gebruikt wordt als: een uitbreiding van de programmeertaal Python). Met deze library, kun je met relatief weinig programmeerkennis een model trainen dat een voorspelling kan maken van, ja van wat niet eigenlijk. Dit kan zolang je maar genoeg voorbeelden (je data) hebt. Gelukkig hoef je niet altijd zelf je data te verzamelen, maar zijn er mensen die data gratis met de wereld delen. Tschandl et al.{{% fn 3 %}} hebben plaatjes van moedervlekken bij elkaar gezocht en gelabeld (een label is de waarde die de data, in dit geval een foto, heeft). Specialisten op het gebied van moedervlekken hebben iedere foto beoordeeld als goed- of kwaadaardige moedervlek. Deze stap is erg belangrijk ,want zonder gelabelde data kun je eigenlijk geen AI model maken dat een nuttige voorspelling kan doen (met uitzondering van technieken die ongelabelde data gebruiken, maar dat is voor een volgende keer). En vaak geldt: des te meer data ,des te beter."
    ]
   },
   {
@@ -54,7 +52,7 @@
    "id": "d2db37fb-40c6-4943-8101-ac70544f507a",
    "metadata": {},
    "source": [
-    "Nu we onze data hebben kunnen we bijna beginnen om een AI model te trainen. We hebben namelijk ook data nodig om ons model te evalueren. Hiervoor gebruik je data dat niet is gebruikt tijdens het trainen. In de praktijk splits je daarom je data vaak in twee groepen. Een groep die je gebruikt om je model te trainen en een groep om te evalueren. Door deze splitsing evalueer je het getrainde model met data wat je model nog niet gezien heeft tijdens de training. Dat is erg belangrijk, want uiteindelijk word je model ook op deze manier gebruikt! Een foto die een gebruiker instuurt heeft het model nog nooit gezien en op deze foto's wil je een accurate voorspelling doen."
+    "Nu we onze data hebben ,kunnen we bijna beginnen om een AI model te trainen. We hebben namelijk ook data nodig om ons model te evalueren. Hiervoor gebruik je data die niet is gebruikt tijdens het trainen. In de praktijk splits je daarom je data vaak in twee groepen. Een groep die je gebruikt om je model te trainen en een groep om te evalueren. Door deze splitsing evalueer je het getrainde model met data dat je model nog niet gezien heeft tijdens de training. Dat is erg belangrijk, want uiteindelijk wordt je model ook op deze manier gebruikt! Een foto die een gebruiker instuurt heeft het model nog nooit gezien en op deze foto's wil je een accurate voorspelling doen."
    ]
   },
   {
@@ -62,7 +60,7 @@
    "id": "36df48c5-4f72-4fbe-999f-2ff68617bd35",
    "metadata": {},
    "source": [
-    "Ok, nu kunnen we dan echt beginnen met het trainen van het model. Voor foto's en plaatjes word (vaak) een speciale vorm model gebruikt, namelijk een convolutioneel neuraal netwerk (CNN; nog een term die ik later verder ga uitleggen, voor nu kan je een convolutie zien als een speciale rekensom). Zo een CNN gaan wij nu ook gebruiken (en de Fastai library maakt het ons erg gemakkelijk om dit te doen, maar de details bespreek ik weer later)."
+    "Ok, nu kunnen we dan echt beginnen met het trainen van het model. Voor foto's en plaatjes wordt (vaak) een speciale vorm model gebruikt, namelijk een convolutioneel neuraal netwerk (CNN; nog een term die ik later verder ga uitleggen, voor nu kan je een convolutie zien als een speciale rekensom). Zo 'n CNN gaan wij nu ook gebruiken (en de Fastai library maakt het ons erg gemakkelijk om dit te doen, maar de details bespreek ik weer later)."
    ]
   },
   {
@@ -70,7 +68,7 @@
    "id": "f9e27f90-c236-4712-a9de-4ce8b809a475",
    "metadata": {},
    "source": [
-    "Tabel 1: Het trainen van een model. Epochs staat voor hoe veel keer je door je data heen gaat om je model te trainen. De train_loss is de loss die het model heeft op de trainings data en de valid_loss van je evaluatie data (hoe de loss word berekend ga ik later bespreken, de loss is berekend door het verschil tussen de voorspelde waarde door het model en de echte (gelabelde) waarde in een formule te stoppen). Als laatste bevat de tabel de tijd die 1 epoch duurt in minuten.\n",
+    "Tabel 1: Het trainen van een model. Epochs staat voor hoeveel keer je door je data heen gaat om je model te trainen. De train_loss is de loss die het model heeft op de trainingsdata en de valid_loss van je evaluatie data (hoe de loss wordt berekend ga ik later bespreken, de loss is berekend door het verschil tussen de voorspelde waarde door het model en de echte (gelabelde) waarde in een formule te stoppen). Als laatste bevat de tabel de tijd die 1 epoch duurt in minuten.\n",
     "\n",
     "![](images/Tabel_error_rate_blog_moedervlekken.JPG)"
    ]
@@ -80,7 +78,7 @@
    "id": "cf5705a5-ca67-498d-a241-7badc362667f",
    "metadata": {},
    "source": [
-    "In onderstaande tabel zie je dat we (na maar een paar minuten trainen) een accuuraatheid van maarliefst 95% hebben (Tabel 1; De error rate is lager dan 0.05, wat betekend dat de accuraatheid groter is dan (1 - 0.05) * 100%). Dat is de kracht van transfer learning en trainen op een grafische kaart (GPU). Echter, een wezenlijk probleem is dat de accuraatheid verbonden is aan of je model een soortgelijke moedervlek heeft gezien tijdens de training. Hoewel we dat probleem zo goed mogelijk proberen op te lossen door je data te splitsen, is het nog steeds een probleem wanneer een moedervlek er compleet anders uit ziet dan de moedervlekken waarop je het model hebt getraind. Dat is een reden waarom deze modellen in de praktijk nog geen specialisten vervangen en waarom je dus met een gek uitziende moedervlek altijd naar een specialist moet gaan. Maar, deze modellen kunnen wel als hulpmiddel dienen voor deze specialisten! Dit voorbeeld laat dus de kracht maar zeker ook een grote uitdaging van AI zien. "
+    "In onderstaande tabel zie je dat we (na maar een paar minuten trainen) een accuuraatheid van maarliefst 95% hebben (Tabel 1; De error rate is lager dan 0.05, wat betekent dat de accuraatheid groter is dan (1 - 0.05) * 100%). Dat is de kracht van transfer learning en trainen op een grafische kaart (GPU). Een wezenlijk probleem is echter dat de accuraatheid verbonden is aan of je model een soortgelijke moedervlek heeft gezien tijdens de training. Hoewel we dat probleem zo goed mogelijk proberen op te lossen door je data te splitsen, is het nog steeds een probleem wanneer een moedervlek er compleet anders uit ziet, dan de moedervlekken waarop je het model hebt getraind. Dat is een reden waarom deze modellen in de praktijk nog geen specialisten vervangen en waarom je dus met een gek uitziende moedervlek altijd naar een specialist moet gaan. Maar deze modellen kunnen wel als hulpmiddel dienen voor deze specialisten! Dit voorbeeld laat dus de kracht, maar zeker ook een grote uitdaging van AI zien. "
    ]
   },
   {
@@ -88,7 +86,7 @@
    "id": "2cef52d7-b975-40a5-8cad-e0b22f6aabb7",
    "metadata": {},
    "source": [
-    "Er zijn vele voorbeelden waar soortgelijke technieken worden gebruikt (zie tabel 2). De code van dit project kan je vinden op [Github](https://github.com/Mees-Molenaar/melanoma-classifier) en je kunt het getrainde model ook testen met een foto van een eigen moedervlek of eentje van het internet ([moedervlek herkenner](https://melanoma-classifier.herokuapp.com/)). "
+    "Er zijn veel voorbeelden waar soortgelijke technieken worden gebruikt (zie tabel 2). De code van dit project kan je vinden op [Github](https://github.com/Mees-Molenaar/melanoma-classifier) en je kunt het getrainde model ook testen met een foto van een eigen moedervlek of eentje van het internet ([moedervlek herkenner](https://melanoma-classifier.herokuapp.com/)). "
    ]
   },
   {
@@ -190,7 +188,7 @@
    "id": "f042ea3e-3664-4293-b9c6-8a73d912066e",
    "metadata": {},
    "source": [
-    "We zijn weer aan het einde gekomen en ik kan me goed voorstellen dat het duizeld van de moeilijke termen. Ik ga proberen om die termen in toekomstige berichten zo duidelijk mogelijk uit te leggen. Mochten er vragen of opmerkingen zijn, dan kunnen jullie die hieronder plaatsen! Bedankt voor het lezen en tot de volgende keer! (Smeer je goed in tegen de zon!!)."
+    "We zijn weer aan het einde gekomen en ik kan me goed voorstellen dat het duizelt van de moeilijke termen. Ik ga proberen om die termen in toekomstige berichten zo duidelijk mogelijk uit te leggen. Mochten er vragen of opmerkingen zijn, dan kunnen jullie die hieronder plaatsen! Bedankt voor het lezen en tot de volgende keer! (Smeer je goed in tegen de zon!!)."
    ]
   },
   {
