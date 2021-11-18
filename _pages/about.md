@@ -17,7 +17,7 @@ Omdat de focus op dit moment ligt bij de beste AI beoefenaar te worden zal de ko
 
 Wanneer ik dit beter onder de knie heb, wil ik ook mijn focus wat meer verschuiven naar AI in de biologie!
 
-### Wat doe ik nu (06JUN21)
+### Wat doe ik nu (18NOV21)
 
 Werk: AI Developer bij DDi
 
