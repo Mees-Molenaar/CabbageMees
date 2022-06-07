@@ -6,7 +6,7 @@ permalink: /about/
 
 Hoi,
 
-Leuk dat je kijkt op deze blog van een rare vogel (een Koolmees bijvoorbeeld). Als je mijn introductie (nog) niet hebt gelezen, dan kan je die [hier](https://mees-molenaar.github.io/CabbageMees/de%20reis/introductie/2021/05/26/Eerste-blog-post.html) vinden. Vervolgens kan je ook de volgende plannen [hier](<(https://mees-molenaar.github.io/CabbageMees/de%20reis/2022/06/07/Een-nieuwe-stap.html)>)
+Leuk dat je kijkt op deze blog van een rare vogel (een Koolmees bijvoorbeeld). Als je mijn introductie (nog) niet hebt gelezen, dan kan je die [hier](https://mees-molenaar.github.io/CabbageMees/de%20reis/introductie/2021/05/26/Eerste-blog-post.html) vinden. Er is alweer een tijdje over heen gevlogen (blijf een vogel), toch verwijs ik graag naar de vervolg plannen van de blog [hier](https://mees-molenaar.github.io/CabbageMees/de%20reis/2022/06/07/Een-nieuwe-stap.html).
 
 Dit blog gaat dus over twee passies Artificiele Intelligentie (AI) en biologie. Op dit moment is eerst het plan om een van de beste AI beoefenaars te worden van Nederland. Om dat vervolgens toe te passen in de Biologie met als droom: op een goedkopere manier medicijnen te ontwikkelen. Ik neem jullie mee op dit avontuur.
 
@@ -20,6 +20,10 @@ Wanneer ik dit beter onder de knie heb, wil ik ook mijn focus wat meer verschuiv
 ### Wat doe ik nu (07JUN22)
 
 Werk: Consultant bij Navara
+
+#### Project
+
+- Android App maken
 
 #### Boeken
 
