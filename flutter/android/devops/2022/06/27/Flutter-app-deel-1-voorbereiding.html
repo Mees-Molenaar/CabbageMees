@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Android App in Flutter Deel 1 - Voorbereiding | CabbageMees</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Android App in Flutter Deel 1 - Voorbereiding" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Een Android applicatie maken met Flutter" />
+<meta property="og:description" content="Een Android applicatie maken met Flutter" />
+<link rel="canonical" href="https://mees-molenaar.github.io/CabbageMees/flutter/android/devops/2022/06/27/Flutter-app-deel-1-voorbereiding.html" />
+<meta property="og:url" content="https://mees-molenaar.github.io/CabbageMees/flutter/android/devops/2022/06/27/Flutter-app-deel-1-voorbereiding.html" />
+<meta property="og:site_name" content="CabbageMees" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-27T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://mees-molenaar.github.io/CabbageMees/flutter/android/devops/2022/06/27/Flutter-app-deel-1-voorbereiding.html","@type":"BlogPosting","headline":"Android App in Flutter Deel 1 - Voorbereiding","dateModified":"2022-06-27T00:00:00-05:00","datePublished":"2022-06-27T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://mees-molenaar.github.io/CabbageMees/flutter/android/devops/2022/06/27/Flutter-app-deel-1-voorbereiding.html"},"description":"Een Android applicatie maken met Flutter","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/CabbageMees/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://mees-molenaar.github.io/CabbageMees/feed.xml" title="CabbageMees" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9GMDP6RW3B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9GMDP6RW3B');
+</script>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="/CabbageMees/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/CabbageMees/">CabbageMees</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CabbageMees/about/">Over Mij</a><a class="page-link" href="/CabbageMees/search/">Zoeken</a><a class="page-link" href="/CabbageMees/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Android App in Flutter Deel 1 - Voorbereiding</h1><p class="page-description">Een Android applicatie maken met Flutter</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-27T00:00:00-05:00" itemprop="datePublished">
+        Jun 27, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/CabbageMees/categories/#Flutter">Flutter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CabbageMees/categories/#Android">Android</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CabbageMees/categories/#DevOps">DevOps</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#De-MVP">De MVP </a></li>
+<li class="toc-entry toc-h2"><a href="#De-DevOps-principes-in-dit-project">De DevOps principes in dit project </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-06-27-Flutter-app-deel-1-voorbereiding.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In deze post neem ik jullie mee met de voorbereidingen van het maken van een Android app. Nu zie ik de vraagtekens in je hersenspinsels verschijnen, want je hebt gelijk: een Android app kan van alles zijn. Daarom is de eerste stap bij het maken van een stuk software, zoals een app, belangrijk om te bepalen wat de gebruiker (of klant) wilt. Specifieker nog: welk probleem wil de gebruiker verholpen zien worden?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In een team op de werkvloer wordt deze vraag vaak in kaart gebracht door de product owner. Als product owner werk je naar een bepaald doel (bijvoorbeeld 10% meer omzet) van het bedrijf en dit doe je door je software te maken naar de wensen van je (potentiële) gebruikers. Vervolgens zet je deze wensen om in software features (of user stories) en splits je deze op in kleine taken. Daarna buigt het development team zich erover om de technische kant vorm te geven en weer te verdelen in taken. Deze taken worden op een sprint (vaak een periode van 1 - 4 weken) gezet om af te ronden. Door dit proces blijf je altijd werken aan taken die er toe doen voor de klant.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>Aanvulling: Tegenwoordig is er wel eens kritiek op bovenstaande aanpak en zou het beter kunnen zijn om het development team zelf de wensen van klanten in kaart te laten brengen. Hierdoor kan het development team rechtstreeks de klant helpen in plaats van te communiceren met een tussenpersoon.</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Het makkelijke aan een eigen project is dat je zelf de klant bent. In dit geval heb ik een probleem en deze wil ik oplossen. Daardoor is het relatief eenvoudig om het probleem vast te stellen, namelijk: er is geen makkelijk te gebruiken Android app om een lijst van taken aan te maken en van deze lijst iedere ochtend 1 willekeurige taak als notificatie binnen te krijgen. (misschien bestaat zo een app wél al, maar ik wil ook graag leren hoe je aan app maakt! :)). Nu dit probleem duidelijk is kan de product owner (wederom ikzelf, ik heb nog niemand aan kunnen nemen door de krapte op de arbeidsmarkt) aan de user stories beginnen.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wanneer je begint aan het maken van de user stories is het belangrijk om niet te gedetailleerd te zijn. Het is vaak handiger om een ruwe prototype te maken (ook wel een minimal viable product (MVP) genoemd). Hiermee kan je snel vaststellen of je de capaciteiten in het team hebt om het product te maken. Maar misschien nog belangrijker, je kunt snel feedback vragen aan de gebruiker zodat je kan testen of de user stories daadwerkelijk het probleem van de gebruiker oplossen. Of dat er misschien onduidelijkheden waren waardoor de user stories niet 100% aansloten maar dat je nu nog op tijd bent om de software aan te passen. Voor mij is dat ook het doel, om met een MVP bovenstaand probleem op te lossen.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="De-MVP">
+<a class="anchor" href="#De-MVP" aria-hidden="true"><span class="octicon octicon-link"></span></a>De MVP<a class="anchor-link" href="#De-MVP"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wanneer je begint aan het maken van de user stories is het belangrijk om niet te gedetailleerd te zijn. Het is vaak handiger om een ruwe prototype te maken (ook wel een minimal viable product (MVP) genoemd). Hiermee kan je snel vaststellen of je de capaciteiten in het team hebt om het product te maken. Maar misschien nog belangrijker, je kunt snel feedback vragen aan de gebruiker zodat je kan testen of de user stories daadwerkelijk het probleem van de gebruiker oplossen. Of dat er misschien onduidelijkheden waren waardoor de user stories niet 100% aansloten maar dat je nu nog op tijd bent om de software aan te passen. Voor mij is dat ook het doel, om met een MVP bovenstaand probleem op te lossen.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th>MVP</th>
+<th>Volgende Versie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lijst met hardcoded practices</td>
+<td>Lijst dynamisch kunnen aanpassen en opslaan in een database</td>
+</tr>
+<tr>
+<td>1 willekeurige practice van bovenstaande lijst pakken</td>
+<td>Tijd van de notificatie en hoeveel notificaties aanpasbaar maken</td>
+</tr>
+<tr>
+<td>Bovenstaande practice als notificatie geven</td>
+<td>Willekeur als optie kunnen aanvinken</td>
+</tr>
+<tr>
+<td>Niet 2x dezelfde notificatie achter elkaar</td>
+<td>Practice voor de dag weergeven wanneer je de app opent</td>
+</tr>
+<tr>
+<td>Alles met unit en functionele tests</td>
+<td></td>
+</tr>
+<tr>
+<td>CI/CD pipeline</td>
+<td></td>
+</tr>
+<tr>
+<td>Versie controle (Git)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Deze vereisten worden dan door het technische team in taken verdeeld om dit technisch op te lossen. Het is dan fijn wanneer de taken zo klein mogelijk zijn, zodat je iedere dag werkende (en geteste) code kan toevoegen aan je project en je niet hoeft te werken in branches. Belangrijk hierbij is dat de taken zichtbaar zijn, zodat je (bijvoorbeeld) de volgende vragen kunt beantwoorden: Waar wordt aan gewerkt? Loopt er een taak vast? Dit zorgt er mede voor dat je de obstakels kunt oplossen of verbeteren, waardoor je in het vervolg soortgelijke taken sneller kan afronden en daarmee ook sneller de gebruiker (die vaak ongeduldig zijn) kan helpen!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="De-DevOps-principes-in-dit-project">
+<a class="anchor" href="#De-DevOps-principes-in-dit-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>De DevOps principes in dit project<a class="anchor-link" href="#De-DevOps-principes-in-dit-project"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Zoals in de vorige post uitgelegd wil ik mij met ieder project ook bezig houden met de DevOps principes (om daar beter in te worden). Nu voel ik mij niet geschikt om DevOps samen te vatten, maar toch probeer ik het: “DevOps is een werkwijze welke het doel heeft om zo snel en goed mogelijk problemen op te lossen van een gebruiker (met software)”. Een voorbeeld daarvan is de taken zichtbaar maken (zoals hierboven beschreven). Maar er zijn ook vele andere manieren om het DevOps doel te bereiken (daar zijn verschillende boeken over bijvoorbeeld Accelerate van Nicole Forsgen en The DevOps Handbook van Gene Kim). De manieren in dit project om op de DevOps manier te werken wil ik hier graag herhalen:</p>
+<ul>
+<li>Vergaar en implementeer klant feedback: maak een MVP dat de klant zo snel mogelijk kan beoordelen en jij daardoor kan aanpassen.</li>
+<li>Alles in versie controle (ook configuratie bestanden!)</li>
+<li>CI/CD pipeline. Dat betekent in het kort: na iedere code incheck dat er automatisch testen worden uitgevoerd en wanneer deze testen succesvol zijn uitgevoerd dat deze nieuwe code automatisch in de live software komt.</li>
+<li>Werk in kleine batches/taken opdelen. Het liefste in taken die maximaal in 1 dag af te ronden zijn. Hierdoor hoef je niet in branches te werken.</li>
+<li>Maak je werk zichtbaar! Zelf gebruik ik nu een Trello board (dit ga ik misschien nog veranderen) waarin ik taken kan slepen van todo naar in progress en dan naar done.</li>
+</ul>
+<p>Er zijn nog veel meer principes, maar voor dit project focus ik mij op bovenstaande punten.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Voordat ik deze post afrond wil ik nog melden dat dit de eerste keer is dat ik een android app maak. Dat betekent dat ik op de afgelopen tijd vooral bezig was met het leren van <a href="https://developer.android.com/courses/android-basics-kotlin/course">Kotlin voor Android apps</a>. Hiermee ben ik nu klaar. Daarnaast ben ik ook bezig geweest met <a href="https://flutter.dev/">Flutter</a>. Met Flutter kan je gemakkelijk multi-platform apps maken, wat het een interessante tool maakt. Daarom wil ik deze eerste app met Flutter schrijven om daar beter in te worden.</p>
+<p>Tot de volgende keer!</p>
+<p>Geniet van vandaag :)</p>
+<p>Mees</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/CabbageMees/flutter/android/devops/2022/06/27/Flutter-app-deel-1-voorbereiding.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/CabbageMees/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+      </div>
+      <div class="footer-col">
+        <p>Een blog over programmeren en AI</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Mees-Molenaar" target="_blank" title="Mees-Molenaar"><svg class="svg-icon grey"><use xlink:href="/CabbageMees/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
