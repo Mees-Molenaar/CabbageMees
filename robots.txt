@@ -1,1 +1,1 @@
-Sitemap: https://mees-molenaar.github.io/CabbageMees/sitemap.xml
+Sitemap: https://cabbagemees.nl/sitemap.xml
