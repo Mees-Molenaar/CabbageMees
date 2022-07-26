@@ -23,18 +23,17 @@ Werk: Consultant bij Navara
 
 #### Project
 
-- Android App maken
+- Flutter App maken
 
 #### Boeken
 
-- Jack Kerouac - On the road (Roman)
-- Shane Parrish - The Great Metal Modes Volume 1: General Think Concepts (Kennis)
+- Herman Hesse - SteppenWolf (Roman)
 - Gerald Jay Sussman en Hal Abelson - Structure and Interpretation of Computer Programs (Programmeren)
 
 #### Cursussen
 
 - [Berkeley 61A](https://archive.org/details/ucberkeley-webcast-PL3E89002AA9B9879E?sort=titleSorter)
-- [Kotlin Basics](https://developer.android.com/courses/android-basics-kotlin/course)
+- [Flutter Course for Beginners](https://www.youtube.com/watch?v=VPvVD8t02U8)
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
