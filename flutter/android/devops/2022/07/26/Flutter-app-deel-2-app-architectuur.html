@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Deel 2 - Een Flutter App - Voorbereiden App Structuur | CabbageMees</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Deel 2 - Een Flutter App - Voorbereiden App Structuur" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="De app architectuur bepalen" />
+<meta property="og:description" content="De app architectuur bepalen" />
+<link rel="canonical" href="https://cabbagemees.nl/flutter/android/devops/2022/07/26/Flutter-app-deel-2-app-architectuur.html" />
+<meta property="og:url" content="https://cabbagemees.nl/flutter/android/devops/2022/07/26/Flutter-app-deel-2-app-architectuur.html" />
+<meta property="og:site_name" content="CabbageMees" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-26T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://cabbagemees.nl/flutter/android/devops/2022/07/26/Flutter-app-deel-2-app-architectuur.html","@type":"BlogPosting","headline":"Deel 2 - Een Flutter App - Voorbereiden App Structuur","dateModified":"2022-07-26T00:00:00-05:00","datePublished":"2022-07-26T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://cabbagemees.nl/flutter/android/devops/2022/07/26/Flutter-app-deel-2-app-architectuur.html"},"description":"De app architectuur bepalen","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://cabbagemees.nl/feed.xml" title="CabbageMees" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9GMDP6RW3B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9GMDP6RW3B');
+</script>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CabbageMees</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">Over Mij</a><a class="page-link" href="/search/">Zoeken</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Deel 2 - Een Flutter App - Voorbereiden App Structuur</h1><p class="page-description">De app architectuur bepalen</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-07-26T00:00:00-05:00" itemprop="datePublished">
+        Jul 26, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#Flutter">Flutter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Android">Android</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#DevOps">DevOps</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Stappenplan-App-maken">Stappenplan App maken </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-07-26-Flutter-app-deel-2-app-architectuur.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hallo allemaal!</p>
+<p>Leuk dat jullie hier weer zijn om dit project te volgen. In deze post neem ik jullie mee in de planning voor de codestructuur van de app die we aan het maken zijn. Omdat dit mijn eerste eigen Flutter project is, neem ik veel informatie over van andere bronnen. Hierdoor leer je op een andere manier (dan je automatische piloot) kijken naar het opzetten van projecten. En wanneer dit bevalt kan je dat uiteraard inbouwen in je automatische werkwijze voor je volgende projecten!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Stappenplan-App-maken">
+<a class="anchor" href="#Stappenplan-App-maken" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stappenplan App maken<a class="anchor-link" href="#Stappenplan-App-maken"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In de vorige post van dit project <sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup> heb ik de vereisten vastgesteld. In die fase beschreef ik wat de app moet hebben om de klant haar problemen op te lossen. Maar op technisch vlak is dan nog niets bepaald. Deze fase gaat over het technische vlak, namelijk wat zijn de technische stappen die nodig zijn om de app op te leveren. Voor dit project heb ik grofweg de App Development Workflow van Code with Andrea <sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup> aangehouden.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Over de eerste twee stappen, Design en Database/Backend, kan ik kort zijn. Het Design zal een simpele lijstweergave zijn (de standaard ingebouwd in Flutter). En voor versie 1 (V1) hebben we gezegd: hardcoded practices (dus geen database) en er is ook geen backend nodig. Dat waren de eerste twee stappen al, maar de volgende stap is een stuk uitdagender!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De derde stap is namelijk het bepalen van de app architectuur. Nu is dit dus mijn eerste Flutter project en heb ik nog geen goed idee over wat de handigste app structuur voor een Flutter project is. Gelukkig werk ik ondertussen wel aan een andere Flutter app waarin we Flutter Blocs gebruiken. En in de voorbeelden van Flutter Blocs kwam ik een structuur tegen die mij aansprak <sup id="fnref-3" class="footnote-ref"><a href="#fn-3">3</a></sup>. Hieronder heb ik diezelfde structuur vertaald naar de app die ik aan het maken ben.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/copied_from_nb/images/flutter_deel_2_app_architectuur.PNG" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Opmerking:Onderstaande alinea's zijn technisch, maar daar ontkom je niet aan bij het bepalen van de app architectuur :).</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De Data Layer is, zoals de naam van de layer ook omschrijft, de connectie naar je onbewerkte data. Deze wil je het liefste zo generiek mogelijk houden en is vaak een simpele API om CRUD (Create, Read, Update, Delete) operaties uit te voeren. In de app Data Layer zitten twee componenten, de Daily Practices API en Hardcoded Daily Practices API. De eerstgenoemde is de generieke interface (een soort van blauwdruk van je verschillende implementaties). Als V1 heb ik vastgesteld dat de Daily Practices hardcoded en niet aanpasbaar zijn. Daarom hebben deze APIs voor V1 alleen een leesoperatie nodig. De specifieke implementatie hiervan wordt gedaan in de Hardcoded Daily Practices API.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De volgende laag is de Domain Layer. Hierin koppel je de data APIs in een repository. Je voegt hieraan zogeheten business rules toe om bijvoorbeeld data te filteren of in een bepaalde structuur door te geven aan je Blocs in de feature layer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De repository layer geeft de data dus door aan je Blocs in de Feature Layer. Hierdoor fungeert je Bloc als brug tussen de data en de (User Interface) UI in je app. De Bloc bevat je business (b) logic (loc). Afhankelijk van acties van de gebruiker vraagt de Bloc data op uit (mogelijk verschillende) repositories. Hierdoor verandert de state van je Bloc. Deze verandering wordt opgepikt door de UI en daardoor past de UI van de app zich aan. Het grootste voordeel van deze structuur is dat de business logic en UI gescheiden zijn. Dit reduceert coupling en daardoor zijn de afzonderlijke onderdelen van je app in isolatie te testen en te gebruiken!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nadat de app architectuur is bepaald, kan je samen met de vereisten een project board maken. In eerste instantie gebruikte ik Trello maar later dacht ik dat het handiger zou zijn om alles op 1 plek te hebben. Daarom ben ik overgestapt naar Github Projects. Het uitgeschreven project board kan je hier <sup id="fnref-4" class="footnote-ref"><a href="#fn-4">4</a></sup> vinden. Ik heb geprobeerd om het zo volledig mogelijk te maken, maar het zal vast zijn dat ik zaken ben vergeten. Dus dat vul ik in wanneer ik dat tegenkom. Het project board heb ik opgedeeld in verschillende onderwerpen (Test, UI, Flutter en CI/CD). En daaronder heb ik dan de verschillende taken bedacht en aangemaakt. Toen dat gedaan was kon ik beginnen aan de volgende stap, de CI/CD pipeline.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Door te beginnen met de CI/CD pipeline kan je zo vroeg mogelijk beginnen met testen. Omdat alles op Github staat gebruiken we in dit geval Github Actions voor onze (in eerste instantie niet CD) CI pipeline. De specifieke implementatie van de Github Actions zal ik in een volgende post vertellen.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De laatste stap is het uitvoeren van de taken op je project board! Ondertussen ben ik al begonnen. Doordat ik bij mijn vorige projecten een andere werkwijze aanhield, was even wennen. Maar eenmaal in het ritme gekomen ging alles voortvarend! Ik heb veel geleerd en veel van de taken zijn voltooid. Op dit moment ben ik vastgelopen op het notificatie deel maar wanneer dat werkt is V1 zo goed als af! Hopelijk lukt dat binnenkort!</p>
+<p>Tot de volgende keer :)</p>
+<p>Mees</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="footnotes"><p id="fn-1">1. <a href="https://cabbagemees.nl/flutter/android/devops/2022/06/27/Flutter-app-deel-1-voorbereiding.html">Android App in Flutter Deel 1 - Voorbereiding</a><a href="#fnref-1" class="footnote footnotes">↩</a></p></div>
+<div class="footnotes"><p id="fn-2">2. <a href="https://github.com/bizz84/flutter-tips-and-tricks/blob/main/tips/0022-app-development-workflow-in-six-steps/index.md">Code With Andrea App Development Worklfow</a><a href="#fnref-2" class="footnote footnotes">↩</a></p></div>
+<div class="footnotes"><p id="fn-3">3. <a href="https://bloclibrary.dev/#/fluttertodostutorial">Bloclibrary - Flutter Todos Tutorial</a><a href="#fnref-3" class="footnote footnotes">↩</a></p></div>
+<div class="footnotes"><p id="fn-4">4. <a href="https://github.com/users/Mees-Molenaar/projects/1">Github Project Board - Flutter App</a><a href="#fnref-4" class="footnote footnotes">↩</a></p></div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/flutter/android/devops/2022/07/26/Flutter-app-deel-2-app-architectuur.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+      </div>
+      <div class="footer-col">
+        <p>Een blog over programmeren en AI</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Mees-Molenaar" target="_blank" title="Mees-Molenaar"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
